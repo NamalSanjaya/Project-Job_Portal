@@ -1,0 +1,21 @@
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+    <body>
+
+        <div>
+            <h1> Request Registration : Employee</h1>
+        </div>
+        
+        <form method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            <div>
+                {{ formRA.as_p }}
+            </div>
+            <input type="submit" value="submit">
+
+        </form>
+
+    </body>
+
+{% endblock %}

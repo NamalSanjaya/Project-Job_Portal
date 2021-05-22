@@ -1,0 +1,25 @@
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+
+    <body>
+
+        <div>
+            <h1> Account Creation : Employer</h1>
+        </div>
+        
+        <form action="{% url 'company:CreateAccount' code %}" method="POST"> 
+            {% csrf_token %}
+        <div>
+            
+            <label for="password"> Password: </label>
+            <input id="password" type="password" name="password">
+
+        </div>
+            <input type="submit" value="submit">
+
+        </form>
+
+    </body>
+
+{% endblock content %}

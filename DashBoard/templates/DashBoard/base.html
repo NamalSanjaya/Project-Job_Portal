@@ -1,0 +1,30 @@
+
+<html>
+    <body>
+
+        <nav>
+            <a href="{% url 'dashboard:dashboard-home' %}"> Home </a>
+            {% if user.is_authenticated %}
+                <a href="#"> Profile </a>
+                <a href="#"> logout </a>
+
+            {% else %}
+                <a href="{% url 'company:RequestAccount' %}"> Employer </a>
+                <a href="{% url 'seeker:RequestAccount' %}">  Employee </a>
+                <a href="{% url 'company:LoginCompany'%}"> ___Log_Company___ </a>
+                <a href="{% url 'seeker:LoginSeeker'%}">  ___Log_Seeker___ </a>
+            {% endif %}
+        </nav>
+
+        <div>
+            {% if messages %}
+                {% for messg in messages %}
+                    {{messg}}
+                {% endfor %}
+            {% endif %}
+        </div>
+            {% block content %} {% endblock content %}
+        
+    </body>
+
+</html>
