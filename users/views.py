@@ -4,9 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login
 from django.contrib import messages
+from django.contrib.auth import logout
 
 def register(details):
-
     newUser = User()
     newUser.username   = details['username']
     newUser.set_password( details['password'] )
@@ -50,3 +50,7 @@ def LoginFunction(request,ref):
 
     return render(request , 'users/LoginForm.html' , {'form':form , 'objType': objType } )
 
+def LogoutFunction(request):
+    logout(request)
+    messages.success(request,f'Successfully logged out..')
+    return HttpResponseRedirect(reverse('dashboard:dashboard-home') )

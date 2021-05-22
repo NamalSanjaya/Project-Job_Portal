@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
+from users import views as UserView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('' , include('DashBoard.urls') ),
     path('employer/' , include('Company.urls') ),
     path('employee/' , include('Seeker.urls') ),
+    path('logout/' , UserView.LogoutFunction , name = 'Logout' )
     
 ]
 

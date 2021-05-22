@@ -6,7 +6,7 @@
             <a href="{% url 'dashboard:dashboard-home' %}"> Home </a>
             {% if user.is_authenticated %}
                 <a href="#"> Profile </a>
-                <a href="#"> logout </a>
+                <a href="{% url 'Logout' %}"> Logout </a>
 
             {% else %}
                 <a href="{% url 'company:RequestAccount' %}"> Employer </a>

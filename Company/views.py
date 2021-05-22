@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from users import views as UserView
 from django.contrib import messages
 
+
 def RequestAccount(request):
 
     if request.method == 'POST':
