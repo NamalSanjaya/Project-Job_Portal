@@ -5,6 +5,8 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from users import views as UserView
+from django.contrib import messages
+
 
 def RequestAccount(request):
 
@@ -13,7 +15,9 @@ def RequestAccount(request):
 
         if formRA.is_valid():
             formRA.save()
-            return render(request,'Seeker/request_account_message.html')
+            messages.success(request,f'Request Successfully Directed \nYou will be notified through an email \nCategory : Employee')
+            return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
+    
         
     else:
         formRA = RequestForm()
@@ -29,8 +33,10 @@ def SendMail(request, code):
     msg = EmailMultiAlternatives(subject, body , from_email , to )                       
     msg.content_subtype = "html"
     msg.send()
+    messages.success(request,f'Successfully sent the Email : Employee ..')
 
-    return render(request , 'Seeker/Email_Confirm.html'  )
+    return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
+    
 
 def CreateAccount(request,code):
     
@@ -53,7 +59,7 @@ def CreateAccount(request,code):
                 NewSeeker.save()
                 Info2.delete()
                 code = None
-                
+            messages.success(request,f'Account Creation - Done : Employee!')  
             return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
 
     else:

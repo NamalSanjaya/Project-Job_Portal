@@ -9,7 +9,7 @@ urlpatterns = [
     path('request-account/' , views.RequestAccount , name='RequestAccount'),
     path( 'sendmail/<str:code>/' , views.SendMail  , name = 'SendMail'),
     path( 'create-account/<str:code>/' , views.CreateAccount  , name = 'CreateAccount'),
-    path( 'login/'  ,  UserView.LoginFunction , name = 'LoginCompany' )
+    path( 'login/<int:ref>/'  ,  UserView.LoginFunction , name = 'LoginCompany' )
     
 ]
 

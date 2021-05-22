@@ -4,14 +4,13 @@
     <div> 
         <form method='POST'> 
             {% csrf_token %}
+            <div> <h1> Log-In page : {{objType}}</h1></div>
             <fieldset>
                 {{form.as_p}}
             </fieldset>
 
             <div> 
-
-                <button type="submit"> Log In </button>
-                
+                <button type="submit"> Log In </button> 
             </div>
         </form>
 

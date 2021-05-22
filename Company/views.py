@@ -5,6 +5,7 @@ from .form import RequestForm,CreateAccountForm
 from .models import Company_Request,Company
 from django.contrib.auth.models import User
 from users import views as UserView
+from django.contrib import messages
 
 def RequestAccount(request):
 
@@ -13,8 +14,9 @@ def RequestAccount(request):
 
         if formRA.is_valid():
             formRA.save()
-            return render(request,'Company/request_account_message.html')
-
+            messages.success(request,f'Request Successfully Directed \nYou will be notified through an email \nCategory : Employer')
+            return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
+    
     else:
         formRA = RequestForm()
 
@@ -29,8 +31,9 @@ def SendMail(request, code):
     msg = EmailMultiAlternatives(subject, body , from_email , to )                       
     msg.content_subtype = "html"
     msg.send()
+    messages.success(request,f'Successfully sent the Email : Employer ..')
 
-    return render(request , 'Company/Email_Confirm.html'  )
+    return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
 
 def CreateAccount(request,code):
     
@@ -51,6 +54,7 @@ def CreateAccount(request,code):
                 NewCompany.save()
                 Info2.delete()
                 code = None
+            messages.success(request,f'Account Creation - Done : Employer!')
             return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
 
     else:
