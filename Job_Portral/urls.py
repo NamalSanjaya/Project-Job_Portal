@@ -24,7 +24,9 @@ urlpatterns = [
     path('' , include('DashBoard.urls') ),
     path('employer/' , include('Company.urls') ),
     path('employee/' , include('Seeker.urls') ),
-    path('logout/' , UserView.LogoutFunction , name = 'Logout' )
+    path('logout/' , UserView.LogoutFunction , name = 'Logout' ),
+    path( 'profile-delete/' , UserView.ProfileDelete , name = 'Delete'),
+    path('profile-delete-confirm/' , UserView.DeleteConfirm , name = 'DeleteConfirm')
     
 ]
 

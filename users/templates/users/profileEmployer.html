@@ -1,0 +1,27 @@
+
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+    <body>
+        <div>
+            <h1> Profile : Employer </h1>
+        </div><hr>
+        <div>
+            <p> company_name : {{ Item.company_name }} </p>
+            <p> registered_no : {{ Item.registered_no }} </p>
+            <p> address    : {{ Item.address }} </p>
+            <p> email      : {{ Item.email }} </p>
+            <p> contact_no : {{ Item.contact_no }} </p>
+        </div>
+
+        <form action="{% url 'company:ProfileEditCompany' 1%}">
+            <input type="submit" value="Edit">
+        </form>
+
+        <form action ="{% url 'DeleteConfirm' %}">
+            <input type="submit" value="Delete">
+        </form>
+
+    </body>
+
+{% endblock content %}

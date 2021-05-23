@@ -14,3 +14,9 @@ class CreateAccountForm(forms.ModelForm):
     class Meta:
         model = Seeker
         fields = ['username' , 'password']
+
+class ProfileEditFormS(forms.ModelForm):
+
+    class Meta:
+        model = Seeker
+        fields = ['fullname' , 'username' , 'email' , 'contact_no' , 'skills']

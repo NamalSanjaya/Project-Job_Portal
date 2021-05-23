@@ -1,0 +1,26 @@
+
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+    <div>
+        <h1> Profile : Employee </h1>
+    </div><hr>
+    <div>
+        <p> fullname   :  {{ Item.fullname}} </p>
+        <p> username   :  {{ Item.username }} </p>
+        <p> email      :  {{ Item.email }}    </p>
+        <p> contact_no :  {{ Item.contact_no }} </p>
+        <p> skills     :  {{ Item.skills }} </p>
+    </div>
+
+    <div>
+        <form action="{% url 'seeker:ProfileEditSeeker' 2%}">
+            <input type="submit" value="Edit">
+        </form>
+
+        <form action ="{% url 'DeleteConfirm' %}">
+            <input type="submit" value="Delete">
+        </form>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+    <div>
+        <p> Are You sure ? </p>
+        <form action="{% url 'Delete' %}">
+            <input type="submit" value="delete">
+        </form>
+        <form action="{% url 'dashboard:dashboard-home' %}">
+            <input type="submit" value="cancel">
+        </form>
+
+    </div>
+
+{% endblock content %}

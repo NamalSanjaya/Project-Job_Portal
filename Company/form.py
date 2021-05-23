@@ -15,3 +15,9 @@ class CreateAccountForm(forms.ModelForm):
     class Meta:
         model = Company
         fields = ['password']
+
+class ProfileEditFormC(forms.ModelForm):
+
+    class Meta:
+        model = Company
+        fields = ['company_name' , 'registered_no' , 'address' , 'email' ,'contact_no' ]
