@@ -15,7 +15,7 @@ class SeekerRequestAdmin(admin.ModelAdmin):
     actions = [ Accept ]
 
 class SeekerAdmin(admin.ModelAdmin):
-    list_display = ( 'fullname' ,  "email"  , "Saved_Date")
+    list_display = ( 'fullname' , 'username' , "email"  , "Saved_Date")
     list_filter = ['date_saved']
     date_hierarchy = 'date_saved'
 

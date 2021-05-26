@@ -7,14 +7,16 @@
             {% if user.is_authenticated %}
 
                 {% if user.first_name == "EMPLOYER" %}
-                    <a href="{% url 'company:ProfileShowCompany' 1%}"> Profile </a>
+                    <a href="{% url 'company:ProfileShowCompany' 1%}"> {{user.username}} </a>
+                    <a href="{% url 'company:PostCreationCompany' 1%}"> Create Post </a>
                 {%elif user.first_name == "EMPLOYEE" %}
-                    <a href="{% url 'seeker:ProfileShowSeeker' 2%}"> Profile </a>
+                    <a href="{% url 'seeker:ProfileShowSeeker' 2%}"> {{user.username}} </a>
                 {% else %}
-                    <p> .....You are logged as Admin.....</p>
+                    <p> ..logged as Admin..</p>
                 {% endif %}
 
                 <a href="{% url 'Logout' %}"> Logout </a>
+    
 
             {% else %}
                 <a href="{% url 'company:RequestAccount' %}"> Employer </a>

@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'Post.apps.PostConfig',
     'DashBoard.apps.DashboardConfig',
     'Seeker.apps.SeekerConfig',
     'Company.apps.CompanyConfig',
