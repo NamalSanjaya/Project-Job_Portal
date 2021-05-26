@@ -3,6 +3,7 @@ from .form import PostCreatForm
 from django.http import HttpResponseNotFound
 from django.shortcuts import render,HttpResponseRedirect,reverse
 from django.contrib import messages
+from Company.models import Company
 
 def PostCreation(request , ref):
 
@@ -10,16 +11,17 @@ def PostCreation(request , ref):
         return HttpResponseNotFound('<h1>Page not found</h1>')
 
     if request.method == 'POST':
-        formP = PostCreatForm(request.POST  , request.FILES )
 
+        formP = PostCreatForm( request.POST  , request.FILES )
+       
         if formP.is_valid():
-            formP.save()
+            formP.save() 
             messages.success(request,f'Successfully Post Created..')
 
             return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
 
     else:
-        formP = PostCreatForm()
+        formP = PostCreatForm( initial = { 'owner': request.user } )
 
-    context = {'formP':formP }
+    context = {'formP': formP }
     return render(request , 'Post/create_post.html' , context )

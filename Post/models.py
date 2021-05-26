@@ -26,7 +26,7 @@ class Post(models.Model):
     title    = models.CharField(max_length = 50 , choices = title_choice )
     image    = models.ImageField(upload_to = "Company/Post/" )
     descript = models.TextField(blank = True)
-    owner    = models.ForeignKey( Company , on_delete = models.CASCADE )
+    owner    = models.ForeignKey( Company , on_delete = models.CASCADE , initial='class' )
 
     def __str__(self):
         return self.title + '-Post'
@@ -39,6 +39,4 @@ class Post(models.Model):
         if img.height>400 or img.width>400:
             img.thumbnail((400,400))
             img.save( self.image.path )
-
-
 
