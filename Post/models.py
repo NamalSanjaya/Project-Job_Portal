@@ -26,7 +26,7 @@ class Post(models.Model):
     title    = models.CharField(max_length = 50 , choices = title_choice )
     image    = models.ImageField(upload_to = "Company/Post/" )
     descript = models.TextField(blank = True)
-    owner    = models.ForeignKey( Company , on_delete = models.CASCADE , initial='class' )
+    owner    = models.ForeignKey( Company , on_delete = models.CASCADE )
 
     def __str__(self):
         return self.title + '-Post'
