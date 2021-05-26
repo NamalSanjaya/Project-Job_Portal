@@ -28,6 +28,7 @@ urlpatterns = [
     path( 'profile-delete/' , UserView.ProfileDelete , name = 'Delete'),
     path('profile-delete-confirm/' , UserView.DeleteConfirm , name = 'DeleteConfirm')
     
+    
 ]
 
 if settings.DEBUG:       
