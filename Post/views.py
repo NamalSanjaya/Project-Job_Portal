@@ -4,7 +4,10 @@ from django.http import HttpResponseNotFound
 from django.shortcuts import render,HttpResponseRedirect,reverse
 from django.contrib import messages
 from Company.models import Company
+from .models import Post
+from django.contrib.auth.decorators import login_required
 
+@login_required(redirect_field_name = 'dashboard:dashboard-home')
 def PostCreation(request , ref):
 
     if ref !=1 :
@@ -25,3 +28,21 @@ def PostCreation(request , ref):
 
     context = {'formP': formP }
     return render(request , 'Post/create_post.html' , context )
+
+@login_required(redirect_field_name = 'dashboard:dashboard-home')
+def ShowAllPosts(request,ref):
+
+    if ref !=1 :
+        return HttpResponseNotFound('<h1>Page not found</h1>')
+
+    AllPosts = Post.objects.all()
+    return render( request  , 'Post/see_all.html' , { 'AllPosts':AllPosts } )
+
+@login_required(redirect_field_name = 'dashboard:dashboard-home')
+def ShowPost(request,prmKey):
+    
+    context = { 'Info' : Post.objects.get(pk=prmKey) }
+
+    return render( request , 'Post/see_post.html' , context)
+    
+

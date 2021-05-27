@@ -9,6 +9,7 @@
                 {% if user.first_name == "EMPLOYER" %}
                     <a href="{% url 'company:ProfileShowCompany' 1%}"> {{user.username}} </a>
                     <a href="{% url 'company:PostCreationCompany' 1%}"> Create Post </a>
+                    <a href="{% url 'company:ShowAllPostsCompany' 1%}"> My-Posts </a>
                 {%elif user.first_name == "EMPLOYEE" %}
                     <a href="{% url 'seeker:ProfileShowSeeker' 2%}"> {{user.username}} </a>
                 {% else %}
@@ -17,7 +18,6 @@
 
                 <a href="{% url 'Logout' %}"> Logout </a>
     
-
             {% else %}
                 <a href="{% url 'company:RequestAccount' %}"> Employer </a>
                 <a href="{% url 'seeker:RequestAccount' %}">  Employee </a>

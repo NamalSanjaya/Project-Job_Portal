@@ -13,7 +13,9 @@ urlpatterns = [
     path( 'login/<int:ref>/'  ,  UserView.LoginFunction , name = 'LoginCompany' ),
     path( 'profile/<int:ref>' , UserView.ProfileShow , name  = "ProfileShowCompany" ),
     path( 'profile-edit/<int:ref>' , UserView.ProfileEditCompany , name = "ProfileEditCompany"),
-    path( 'post-creation/<int:ref>' , PostView.PostCreation , name = 'PostCreationCompany' )
+    path( 'post-creation/<int:ref>' , PostView.PostCreation , name = 'PostCreationCompany' ),
+    path( 'post-all-show/<int:ref>' , PostView.ShowAllPosts , name = 'ShowAllPostsCompany' ),
+    path(  'post-show/<int:prmKey>' , PostView.ShowPost , name = 'ShowPostCompany' )
     
 ]
 
