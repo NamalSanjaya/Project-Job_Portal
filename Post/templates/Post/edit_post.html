@@ -1,0 +1,16 @@
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+
+    <div>
+        <form method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+
+            <fieldset>
+                {{ formPE.as_p }}
+            </fieldset>
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
+{% endblock content %}

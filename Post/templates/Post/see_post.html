@@ -5,7 +5,7 @@
     <body>
 
         <div>
-            <h1> Post Details </h1>
+            <h1> Post Details : </h1>
         </div><hr>
 
         <div>
@@ -16,6 +16,14 @@
             <img src="{{ Info.image.url }}" alt="post-image">
             <small> <a href="{{Info.image.url}}">see</a> </small>
 
+        </div>
+        <div>
+            <form action="{% url 'company:PostEditCompany' Info.pk %}" method="GET"> 
+                <input type="submit" value="Edit">
+            </form>
+            <form action="{% url 'company:PostDeleteConfirm' Info.pk %}">
+                <input type="submit" value="Delete">
+            </form>
         </div>
 
     </body>
