@@ -11,6 +11,8 @@ from django.contrib.auth.decorators import login_required
 from Company.form import ProfileEditFormC
 from Seeker.form import ProfileEditFormS
 from . import form as user_form
+from Post.models import Post
+
 def register(details):
     newUser = User()
     newUser.username   = details['username']
@@ -144,3 +146,48 @@ def ProfileDelete(request):
 
     messages.success(request,f'Successfully deleted!')
     return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
+
+
+def Search(request):
+    tp      = request.user.first_name
+    keyword = request.GET['keyword'].lower()
+
+    if keyword == "":
+        return HttpResponseRedirect(reverse('dashboard:dashboard-home') )
+    
+    if tp == 'EMPLOYER':
+        suitL = []
+        allEmployees = Seeker.objects.all()
+        for employee in allEmployees:
+            skillList = makeLower(employee.skills)
+            if keyword in skillList:
+                suitL.append(employee.username)
+
+    if tp == 'EMPLOYEE':
+        suitL = []
+        allPosts = Post.objects.all()
+        for post in allPosts:
+            post2 = makePost(post.title)
+            print(post2 , keyword , post.title)
+            if post2 == keyword:
+                suitL.append(post.owner)
+            
+    if suitL == []:
+        suitL.append('NO RESULT FOUND !!!')
+
+    context = {'suitL': suitL}
+    return render(request , 'users/list_names.html' , context )
+
+def makeLower(List):
+    res = []
+    for e in List:
+        a1 = e.replace("_" , " " , 1 )
+        res.append(a1.lower())
+    return res
+
+def makePost(word):
+    w1 = word.replace("_" , " " , 1 )
+    w2 = w1.lower()
+    return w2
+
+    

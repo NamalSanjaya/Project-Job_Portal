@@ -16,7 +16,10 @@
                 {% endif %}
 
                 <a href="{% url 'Logout' %}"> Logout </a>
-    
+
+                <form action="{% url 'SearchWord' %}">
+                    <input type="search" name="keyword" id="keyword">
+                </form>
 
             {% else %}
                 <a href="{% url 'company:RequestAccount' %}"> Employer </a>
