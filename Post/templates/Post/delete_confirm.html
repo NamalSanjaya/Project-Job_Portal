@@ -3,8 +3,8 @@
 
     <div>
         <p> Are You sure ? </p>
-        <form action="{% url 'Delete' %}">
-            <input type="submit" value="Delete">
+        <form action="{% url 'company:PostDelete' prmKey%}">
+            <input type="submit" value="delete">
         </form>
         <form action="{% url 'dashboard:dashboard-home' %}">
             <input type="submit" value="cancel">
