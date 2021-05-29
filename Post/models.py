@@ -16,7 +16,6 @@ title_choice = [
 ]
 
 
-
 def makePath():
     return "Company/" + user.username + "/Post/"
 
@@ -39,6 +38,4 @@ class Post(models.Model):
         if img.height>400 or img.width>400:
             img.thumbnail((400,400))
             img.save( self.image.path )
-
-
 

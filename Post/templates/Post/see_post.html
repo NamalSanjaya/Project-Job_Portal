@@ -1,0 +1,31 @@
+
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+    <body>
+
+        <div>
+            <h1> Post Details : </h1>
+        </div><hr>
+
+        <div>
+
+            <p> Category : {{Info.category}}</p>
+            <p> Title : {{Info.title }}</p>
+            <p> description : {{Info.descript}}</p>
+            <img src="{{ Info.image.url }}" alt="post-image">
+            <small> <a href="{{Info.image.url}}">see</a> </small>
+
+        </div>
+        <div>
+            <form action="{% url 'company:PostEditCompany' Info.pk %}" method="GET"> 
+                <input type="submit" value="Edit">
+            </form>
+            <form action="{% url 'company:PostDeleteConfirm' Info.pk %}">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+
+    </body>
+
+{% endblock content %}

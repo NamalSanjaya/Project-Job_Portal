@@ -1,0 +1,18 @@
+
+{% extends "DashBoard/base.html" %}
+{% block content %}
+
+    <div>
+        <h1> My Posts : </h1>
+    </div><hr>
+    <div>
+        {% for pst in AllPosts %}
+
+            <p> <a href="{% url 'company:ShowPostCompany' pst.pk%}"> {{pst.title}} </a> </p>
+
+        {% endfor %}
+        
+    </div>
+
+    
+{% endblock content %}

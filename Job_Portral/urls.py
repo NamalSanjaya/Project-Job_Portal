@@ -26,8 +26,8 @@ urlpatterns = [
     path('employee/' , include('Seeker.urls') ),
     path('logout/' , UserView.LogoutFunction , name = 'Logout' ),
     path( 'profile-delete/' , UserView.ProfileDelete , name = 'Delete'),
-    path('profile-delete-confirm/' , UserView.DeleteConfirm , name = 'DeleteConfirm')
-    
+    path('profile-delete-confirm/' , UserView.DeleteConfirm , name = 'DeleteConfirm'),
+    path( 'search/' , UserView.Search , name = 'SearchWord')
     
 ]
 
