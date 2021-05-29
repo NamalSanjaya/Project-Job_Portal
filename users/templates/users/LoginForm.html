@@ -1,15 +1,20 @@
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static %}
+
+    <head>
+        <link rel="stylesheet" href="{% static  'userDesign/login.css' %}">
+    </head>
 
     <div> 
         <form method='POST'> 
             {% csrf_token %}
-            <div> <h1> Log-In page : {{objType}}</h1></div>
-            <fieldset>
+            <div> <h1> Log-In page : {{objType}}</h1></div><hr>
+            <fieldset class="banner">
                 {{form.as_p}}
             </fieldset>
 
-            <div> 
+            <div class="but"> 
                 <button type="submit"> Log In </button> 
             </div>
         </form>

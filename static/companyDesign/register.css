@@ -1,0 +1,9 @@
+.Head h1{
+    color: blue;
+}
+
+.Head hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+

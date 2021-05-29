@@ -1,35 +1,71 @@
-
+{% load static %}
 <html>
-    <body>
 
-        <nav>
+    <head>
+        <title> Home </title>
+        <link rel="stylesheet" href="{% static 'dashboardDesign/baseDesign.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <div class="navbar">
             <a href="{% url 'dashboard:dashboard-home' %}"> Home </a>
+        
+        
             {% if user.is_authenticated %}
 
                 {% if user.first_name == "EMPLOYER" %}
-                    <a href="{% url 'company:ProfileShowCompany' 1%}"> {{user.username}} </a>
-                    <a href="{% url 'company:PostCreationCompany' 1%}"> Create Post </a>
-                    <a href="{% url 'company:ShowAllPostsCompany' user.username%}"> My-Posts </a>
+
+                 <div class="dropdown">
+                    <button class="dropbtn"> {{user.username}}
+                    <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+          
+                        <a href="{% url 'company:ProfileShowCompany' 1%}"> Profile </a>
+                        <a href="{% url 'company:PostCreationCompany' 1%}"> New-Post </a>
+                        <a href="{% url 'company:ShowAllPostsCompany' user.username%}"> My-Posts </a>
+                    
+                    </div>
+                </div>   
+                
                 {%elif user.first_name == "EMPLOYEE" %}
                     <a href="{% url 'seeker:ProfileShowSeeker' 2%}"> {{user.username}} </a>
                 {% else %}
-                    <p> ..logged as Admin..</p>
+                    <p> ..Admin..</p>
                 {% endif %}
 
                 <a href="{% url 'Logout' %}"> Logout </a>
 
-                <form action="{% url 'SearchWord' %}">
-                    <input type="search" name="keyword" id="keyword">
+                <form class="SearchBar" action="{% url 'SearchWord' %}">
+                    <input type="text" name="keyword" id="keyword" placeholder="Search..">
+                    <button type="submit" ><i class="fa fa-search"></i> </button>
                 </form>
 
             {% else %}
-                <a href="{% url 'company:RequestAccount' %}"> Employer </a>
-                <a href="{% url 'seeker:RequestAccount' %}">  Employee </a>
-                <a href="{% url 'company:LoginCompany' 1%}"> ___Log_Company___ </a>
-                <a href="{% url 'seeker:LoginSeeker' 2%}">  ___Log_Seeker___ </a>
-            {% endif %}
-        </nav>
+            <div class="dropdown">
+                <button class="dropbtn"> Employer
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'company:RequestAccount' %}"> New One </a>
+                    <a href="{% url 'company:LoginCompany' 1%}"> Log In </a>
+                </div>
+            </div>
 
+            <div class="dropdown">
+                <button class="dropbtn"> Employee
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="{% url 'seeker:RequestAccount' %}"> New One </a>
+                    <a href="{% url 'seeker:LoginSeeker' 2%}"> Log In </a>
+                </div>
+            </div>
+
+            {% endif %}
+
+        </div>
         <div>
             {% if messages %}
                 {% for messg in messages %}
