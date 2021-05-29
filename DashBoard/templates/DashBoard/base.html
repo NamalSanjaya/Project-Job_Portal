@@ -17,15 +17,11 @@
                 {% endif %}
 
                 <a href="{% url 'Logout' %}"> Logout </a>
-<<<<<<< HEAD
 
                 <form action="{% url 'SearchWord' %}">
                     <input type="search" name="keyword" id="keyword">
                 </form>
 
-=======
-    
->>>>>>> 696e47baf2e2eaac4b761d4c7fef545c0342b6a6
             {% else %}
                 <a href="{% url 'company:RequestAccount' %}"> Employer </a>
                 <a href="{% url 'seeker:RequestAccount' %}">  Employee </a>
