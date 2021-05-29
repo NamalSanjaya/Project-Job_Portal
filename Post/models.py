@@ -16,7 +16,6 @@ title_choice = [
 ]
 
 
-
 def makePath():
     return "Company/" + user.username + "/Post/"
 
