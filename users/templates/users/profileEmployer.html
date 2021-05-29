@@ -1,25 +1,36 @@
 
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static %}
 
-    <body>
-        <div>
-            <h1> Profile : Employer </h1>
+    <head>
+        <link rel="stylesheet" href="{% static  'userDesign/profileEmployer.css' %}">
+    </head>
+
+    <body class="container">
+        <div class="HeadSec">
+            <h1> Profile : {{ Item.company_name }} </h1>
         </div><hr>
-        <div>
-            <p> company_name : {{ Item.company_name }} </p>
-            <p> registered_no : {{ Item.registered_no }} </p>
-            <p> address    : {{ Item.address }} </p>
-            <p> email      : {{ Item.email }} </p>
-            <p> contact_no : {{ Item.contact_no }} </p>
-        </div>
 
+            
+            <div class="details">
+                <ul>
+                    <li><p> Company_name  : </p> {{ Item.company_name }}</li>
+                    <li><p> Registered_no : </p> {{ Item.registered_no }}</li>
+                    <li><p> Address    : </p> {{ Item.address }}  </li>
+                    <li><p> Email      : </p> {{ Item.email }}</li> 
+                    <li><p> Contact_no : </p> {{ Item.contact_no }}</li>
+
+                </ul>
+            </div>
+      
         <form action="{% url 'company:ProfileEditCompany' 1%}">
-            <input type="submit" value="Edit">
+            <button type="submit" class="btn info" > .Edit.. </button>
         </form>
 
         <form action ="{% url 'DeleteConfirm' %}">
-            <input type="submit" value="Delete">
+            <button type="submit" class="btn danger"> Delete </button>
+            
         </form>
 
     </body>

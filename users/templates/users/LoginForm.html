@@ -7,9 +7,14 @@
     </head>
 
     <div> 
+        <div> 
+
+            <h1> Log-In page : {{objType}}</h1>
+
+        </div><hr>
+
         <form method='POST'> 
             {% csrf_token %}
-            <div> <h1> Log-In page : {{objType}}</h1></div><hr>
             <fieldset class="banner">
                 {{form.as_p}}
             </fieldset>

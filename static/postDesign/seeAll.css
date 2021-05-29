@@ -1,0 +1,25 @@
+.imgCon {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+.centered p{
+    color: black;
+    font-size: large;
+}
+
+.HeadSec{
+    background-color:mediumturquoise;
+    border-color: cornflowerblue;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+}

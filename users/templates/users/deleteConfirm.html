@@ -1,13 +1,17 @@
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static %}
+    <head>
+        <link rel="stylesheet" href="{% static 'userDesign/profileEmployer.css' %}">
+    </head>
 
-    <div>
-        <p> Are You sure ? </p>
+    <div class="deleteF">
+        <p><b> Are You sure ? </b></p>
         <form action="{% url 'Delete' %}">
-            <input type="submit" value="Delete">
+            <button type="submit" class="btn danger"> Delete </button>
         </form>
         <form action="{% url 'dashboard:dashboard-home' %}">
-            <input type="submit" value="cancel">
+            <button type="submit" class="btn info"> Cancel </button>
         </form>
 
     </div>
