@@ -81,3 +81,20 @@
 .navbar form.SearchBar button[type = submit]{
   height: 30px;
 }
+
+.notice .messages{
+  color:green;
+  font-size: large;
+  font-family: fantasy;
+}
+
+.error li{
+    color: red;
+    font-size: large;
+}
+
+.notice ul{
+  color:green;
+  font-size: large;
+  background-color: brown;
+}
