@@ -6,30 +6,33 @@
         <link rel="stylesheet" href="{% static  'userDesign/login.css' %}">
     </head>
 
+    <body class="conTemp">
+        
     <div> 
-        <div> 
+      
+            <div>
+                <h1> Log-In page : {{objType}}</h1>
 
-            <h1> Log-In page : {{objType}}</h1>
+            </div><hr>
 
-        </div><hr>
+            <form method='POST'> 
+                {% csrf_token %}
+                <fieldset class="banner">
+                    {{form.as_p}}
+                </fieldset>
 
-        <form method='POST'> 
-            {% csrf_token %}
-            <fieldset class="banner">
-                {{form.as_p}}
-            </fieldset>
+                <div class="but"> 
+                    <button type="submit"> Log In </button> 
+                </div>
+            </form>
 
-            <div class="but"> 
-                <button type="submit"> Log In </button> 
+            <div> 
+                <small> Don't Have An Account?</small>
+                <a href="#"> Sign Up </a>
             </div>
-        </form>
-
-        <div> 
-            <small> Don't Have An Account?</small>
-            <a href="#"> Sign Up </a>
-        </div>
 
     </div>
+</body>
 
 {% endblock content %}
 

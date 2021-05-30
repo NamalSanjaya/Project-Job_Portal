@@ -32,7 +32,7 @@
                 {%elif user.first_name == "EMPLOYEE" %}
                     <a href="{% url 'seeker:ProfileShowSeeker' 2%}"> {{user.username}} </a>
                 {% else %}
-                    <p> ..Admin..</p>
+                    <p style="color: aliceblue;size:5px"> ..Admin..</p>
                 {% endif %}
 
                 <a href="{% url 'Logout' %}"> Logout </a>

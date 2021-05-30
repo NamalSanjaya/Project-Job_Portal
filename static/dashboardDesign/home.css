@@ -117,14 +117,30 @@ body{
   }
   
   .slides p{
-    position: absolute; /* Position the background text */
+    position: relative; /* Position the background text */
     color:black;
     font-size: xx-large;
+    bottom: 35px;
   }
   
-  .withUS p{
-    color: dodgerblue;
-    font-size: medium;
-    font-style: italic;
-    
-  }
+.withUS {
+  padding-left: 20px;
+}
+.withUS p{
+  color: dodgerblue;
+  font-size: medium;
+  font-style: italic;
+  
+}
+
+.withUS h1{
+  font-size: large;
+}
+
+.withUS .center {
+  position: relative;
+  text-align: center;
+  bottom: 120px;
+  color: darkviolet;
+  font-size:30px;
+}

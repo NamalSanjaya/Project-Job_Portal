@@ -1,25 +1,36 @@
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static %}
 
+    <head>
+        <link rel="stylesheet" href="{% static 'companyDesign/accountcreate.css' %}">
+    </head>
 
-    <body>
+    <body class="container">
 
-        <div>
+        <div class="Head">
             <h1> Account Creation : Employer</h1>
+        </div><hr>
+
+        <div class="sunCon2">
+            <p> .....Create Your Account and Find Your Dream Destination ..... </p>
         </div>
         
         <form action="{% url 'company:CreateAccount' code %}" method="POST"> 
             {% csrf_token %}
-        <div>
+        <div class="passCon">
             
             <label for="password"> Password: </label>
             <input id="password" type="password" name="password">
 
         </div>
-            <input type="submit" value="submit">
+        <div class="subCon3">
+            <button type="submit" class="btn info"> Submit </button>
+        </div>
 
         </form>
 
     </body>
 
+    
 {% endblock content %}

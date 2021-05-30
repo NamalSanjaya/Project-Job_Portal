@@ -1,18 +1,34 @@
-{% extends "DashBoard/base.html" %}
-{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'userDesign/update.css' %}">
+    </head>
+
+    <body class="container1">
+
+        <div class="conSub1">
+            <h1> Edit - Profile </h1>
+        </div><hr>
+
+        <div>
+            <form method="POST"> 
+                {% csrf_token %}
+
+                <div class="col-sm-6">
+                    {{ formU.as_p }}
+                </div>
+                <div style="padding-left: 12px;">
+                    <button type="submit" class="btn info"> Save </button>
+                </div>
+            </form>
+
+            <form action ="{% url 'dashboard:dashboard-home' %}" style="padding-left: 12px;">
+                <button type="submit" class="btn danger"> Cancel </button>    
+            </form>
+
+        </div>
+    </body>
 
 
-    <div>
-        <form method="POST"> 
-            {% csrf_token %}
-
-            <fieldset>
-                {{ formU.as_p }}
-            </fieldset>
-            <input type="submit" value="Save">
-        </form>
-    </div>
-
-
-
-{% endblock content %}

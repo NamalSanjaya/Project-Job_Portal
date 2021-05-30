@@ -1,9 +1,10 @@
-{% extends "DashBoard/base.html" %}
-{% block content %}
+
 {% load static %}
+{% load crispy_forms_tags %}
 
     <head>
         <link rel="stylesheet" href="{% static 'companyDesign/registerC.css'%}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         
     </head>
 
@@ -13,15 +14,20 @@
             <hr>
         </div>
         
-        <form method="POST" enctype="multipart/form-data" novalidate> 
-            {% csrf_token %}
-            <div>
-                {{ formRA.as_p}}
-            </div>
+        <div class="subbody">
+            <form method="POST" enctype="multipart/form-data" novalidate> 
+                {% csrf_token %}
+                <div class="frm">
+                    {{ formRA | crispy}}
+                </div>
 
-            <button type="submit" class="btn info"> Submit </button>
+                <button type="submit" class="btn info"> Submit </button>
+            </form>
 
-        </form>
+            <form action ="{% url 'dashboard:dashboard-home' %}">
+                <button type="submit" class="btn danger"> Cancel </button>    
+            </form>
+        </div>
     </body>
 
-{% endblock content %}
+    
