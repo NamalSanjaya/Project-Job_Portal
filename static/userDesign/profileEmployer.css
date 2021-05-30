@@ -63,3 +63,24 @@
    padding-bottom: 20px;
 
 }
+
+.Sech h1{
+  background-color: aquamarine;
+  font-size: x-large;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  
+  
+}
+
+.Sech p{
+  font-size: medium;
+  font-family: 'Courier New';
+  color: black;
+  
+}
+
+.container2 {
+  background-color: lightblue;
+}
