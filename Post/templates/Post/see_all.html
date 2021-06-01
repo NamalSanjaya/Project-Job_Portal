@@ -1,11 +1,19 @@
 
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static%}
 
-    <div>
+    <head>
+        <link rel="stylesheet" href="{% static 'postDesign/seeAll.css' %}">
+    </head>
+
+    <div class="HeadSec">
         <h1> My Posts : </h1>
     </div><hr>
-    <div>
+    <div class="imgCon">
+        <img src="{% static 'postDesign/allpost2.jpg' %}" alt="Snow" style="width:100%">
+    </div>
+    <div class="centered">
         {% for pst in AllPosts %}
 
             <p> <a href="{% url 'company:ShowPostCompany' pst.pk%}"> {{pst.title}} </a> </p>

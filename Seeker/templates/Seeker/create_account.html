@@ -1,25 +1,36 @@
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static %}
 
-    <body>
+    <head>
+        <link rel="stylesheet" href="{% static 'seekerDesign/acountcreation.css' %}">
+    </head>
 
-        <div>
+    <body class="contain">
+
+        <div class="subCon">
             <h1> Account Creation : Employee</h1>
-        </div>
+        </div><hr>
         
         <form action="{% url 'seeker:CreateAccount' code %}" method="POST"> 
             {% csrf_token %}
-        <div>
+        <div class="userCon">
             <label for="username">Username: </label>
             <input id="username" type="text" name="username"><br>
+        </div>
 
+        <div class="passCon">
             <label for="password">Password: </label>
             <input id="password" type="password" name="password">
         </div>
-            <input type="submit" value="submit">
+
+        <div class="subCon2">
+            <button type="submit" class="btn info"> Submit </button>
+        </div>
 
         </form>
 
     </body>
+
 
 {% endblock %}

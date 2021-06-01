@@ -1,18 +1,22 @@
 {% extends "DashBoard/base.html" %}
 {% block content %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static  'userDesign/profileEmployer.css' %}">
+</head>
 
 
-    <body>
-        <div>
-            <h1> Searched Results....</h1>
-
+<body class="container2">
+    <div class="Sech">
+        <h1> Searched Results....</h1><hr>
+        <ol>
             {% for emp in suitL%}
-                <p> {{emp}} </p>
+                <li> <p> {{ emp }} </p> </li>
             {% endfor%}
 
-        </div>
+        </ol>
+    </div>
 
-    </body>
-
+</body>
 
 {% endblock content %}

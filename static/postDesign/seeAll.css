@@ -1,0 +1,72 @@
+.imgCon {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+.centered p{
+    color: black;
+    font-size: large;
+}
+
+
+.HeadSec{
+    background-color:mediumturquoise;
+    border-color: cornflowerblue;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 8px 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.info {
+  border-color: #2196F3;
+  color: dodgerblue;
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+
+.danger {
+  border-color: #f44336;
+  color: red
+}
+
+.danger:hover {
+  background: #f44336;
+  color: white;
+}
+
+.dtaile{
+  padding-top:2px;
+  padding-bottom: 2px;
+  background-color:azure;
+}
+
+.Head2 {
+  background-color: aqua;
+  padding-top: 8px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+}
+
+.contain2{
+  background-color: cornsilk;
+}
